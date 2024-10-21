@@ -4,7 +4,7 @@ import pandas as pd
 app = Flask(__name__)
 
 # Path to the Excel file
-file_path = './DB_boardgames.xlsx'
+file_path = './data/DB_boardgames.xlsx'
 df = pd.read_excel(file_path)
 
 # Mappings for game weight and categories
