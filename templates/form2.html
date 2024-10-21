@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board Game Filter</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Find Your Perfect Board Game</h1>
+        <form action="/filter" method="post">
+            <label for="maxplayers">Number of Players</label>
+            <input type="number" id="maxplayers" name="maxplayers" required placeholder="Enter number of players"><br><br>
+
+            <label for="maxplaytime">Play Time</label>
+            <input type="number" id="maxplaytime" name="maxplaytime" required placeholder="Enter the maximum play time in minutes"><br><br>
+
+            <label for="gameweight">Difficulty Level</label>
+            <select id="gameweight" name="gameweight" required>
+                <option value="basic">Basic</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select><br><br>
+
+            <label for="category">Category</label>
+            <select id="category" name="category" required>
+                <option value="party">Party</option>
+                <option value="strategy">Strategy</option>
+                <option value="war">War</option>
+                <option value="family">Family</option>
+                <option value="abstract">Abstract</option>
+            </select><br><br>
+
+            <input type="submit" value="Find Games">
+        </form>
+    </div>
+</body>
+</html>
