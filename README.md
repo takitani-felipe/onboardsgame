@@ -20,4 +20,6 @@ pip install -r requirements.txt
 python app.py
 ```
 
+# Demo
+
 ![ezgif-boarddemo](https://github.com/user-attachments/assets/379d122b-1d29-4568-ae78-189c0a88b164)
