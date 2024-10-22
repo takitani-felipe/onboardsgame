@@ -22,4 +22,4 @@ python app.py
 
 # Demo
 
-![ezgif-boarddemo](https://github.com/user-attachments/assets/379d122b-1d29-4568-ae78-189c0a88b164)
+![ezgif-boardgame-demo2](https://github.com/user-attachments/assets/73fcbe8e-14aa-411f-89fd-46a74f0acdc0)
