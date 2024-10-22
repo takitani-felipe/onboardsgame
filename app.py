@@ -53,53 +53,36 @@ def filter_games():
             .head(5)[['Name', 'GameWeight', 'MinPlayers', 'MaxPlayers','ComMaxPlaytime', 'Rank:boardgame', 'ImagePath']]
         )
 
+        num_results = len(filtered_games)
+        print(num_results)
+
         # Start building the table HTML with inline CSS styles
-        table_html = """
-        <style>
-            table {
-                width: 80%;
-                margin: 20px auto;
-                border-collapse: collapse;
-                font-family: Helvetica , sans-serif;
-                text-align: center;
-            }
-            th, td {
-                padding: 12px;
-                border: 1px solid #ddd;
-            }
-            th {
-                background-color: #f2f2f2;
-            }
-            tr:nth-child(even) {
-                background-color: #f9f9f9;
-            }
-            img {
-                width: 100px;
-            }
-        </style>
-        <table>
-        <tr>
-            <th>Game</th>
-            <th>Game Weight (0-5)</th>
-            <th>Players</th>
-            <th>Play Time (minutes)</th>
-            <th>Rank</th>
-        </tr>
+        table_html = f"""
+        <link rel="stylesheet" href="./static/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <div class="results-container">
+        <h2 class="results-heading">Results: {num_results} game(s) found</h2>
         """
 
         # Add rows to the table
         for index, row in filtered_games.iterrows():
             table_html += f"""
-            <tr>
-                <td>{row['Name']}<br><img src='{row['ImagePath']}' alt='Game Image'></td>
-                <td>{row['GameWeight']:.1f}</td>
-                <td>{row.MinPlayers} - {row.MaxPlayers}</td>
-                <td>{row['ComMaxPlaytime']}</td>            
-                <td>{int(row['Rank:boardgame'])}</td>
-            </tr>
+                <div class="game-container">
+                <div class="image-name">
+                <img class="game-image" src='{row['ImagePath']}' width="200" alt='Game Image'>
+                </div>
+                <div class="game-details">
+                <h1>{row['Name']}</h1>
+                <p><i class="fa-solid fa-weight-scale"></i> Weight: {row['GameWeight']:.1f}</p>
+                <p><i class="fa-solid fa-user"></i> Players: {row.MinPlayers} - {row.MaxPlayers}</p>
+                <p><i class="fa-solid fa-clock"></i> Playtime: {row['ComMaxPlaytime']}</p>            
+                <p><i class="fa-solid fa-ranking-star"></i> Rank: {int(row['Rank:boardgame'])}</p>
+                </div>
+                </div>
+                <p class="divider"></p>
             """
 
-        table_html += "</table>"
+        table_html += "<a href='/' class='back'><i class='fa-solid fa-backward-step'></i> Search for another game</a></div>"
 
         return table_html
 
