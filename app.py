@@ -79,7 +79,7 @@ def filter_games():
         </style>
         <table>
         <tr>
-            <th>Board Game</th>
+            <th>Game</th>
             <th>Game Weight (0-5)</th>
             <th>Players</th>
             <th>Play Time (minutes)</th>
