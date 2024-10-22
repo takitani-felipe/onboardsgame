@@ -20,6 +20,4 @@ pip install -r requirements.txt
 python app.py
 ```
 
-![boardgame-search](https://github.com/user-attachments/assets/f87b35ad-b567-4359-a0a0-fd65d09c27ed)
-
-![boardgame-table](https://github.com/user-attachments/assets/ce40c3fb-a2db-475c-bc89-e8d9bea37dc9)
+![ezgif-boarddemo](https://github.com/user-attachments/assets/379d122b-1d29-4568-ae78-189c0a88b164)
