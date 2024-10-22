@@ -79,13 +79,11 @@ def filter_games():
         </style>
         <table>
         <tr>
-            <th>Name</th>
+            <th>Board Game</th>
             <th>Game Weight (0-5)</th>
-            <th>Min Players</th>
-            <th>Max Players</th>
+            <th>Players</th>
             <th>Play Time (minutes)</th>
             <th>Rank</th>
-            <th>Image</th>
         </tr>
         """
 
@@ -93,13 +91,11 @@ def filter_games():
         for index, row in filtered_games.iterrows():
             table_html += f"""
             <tr>
-                <td>{row['Name']}</td>
+                <td>{row['Name']}<br><img src='{row['ImagePath']}' alt='Game Image'></td>
                 <td>{row['GameWeight']:.1f}</td>
-                <td>{row['MinPlayers']}</td>
-                <td>{row['MaxPlayers']}</td>
+                <td>{row.MinPlayers} - {row.MaxPlayers}</td>
                 <td>{row['ComMaxPlaytime']}</td>            
                 <td>{int(row['Rank:boardgame'])}</td>
-                <td><img src='{row['ImagePath']}' alt='Game Image'></td>
             </tr>
             """
 
