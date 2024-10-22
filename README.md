@@ -1,12 +1,14 @@
 <div align="center">
 
 # Board Games Finder!
-Find your perfect board game 🚀
+Find your perfect board game at the speed of light! 🚀
 
-![onboardgames-logo](https://github.com/user-attachments/assets/5e9cff3b-7eb4-4440-a9da-547f18d3533c)
+![onboardgames-logo 1](https://github.com/user-attachments/assets/ac4aa456-138a-46f2-bbee-2e75f321a396)
+
+Built to help you find your perfect board game!
 </div>
 
-This project was made to find your perfect board game
+# Getting started
 
 ## Install dependecies
 
