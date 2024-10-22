@@ -36,15 +36,15 @@ form {
 }
 
 label {
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     text-align: left;
     color: #333;
 }
 
 input[type="number"],
 select {
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 0.5rem;
+    margin-bottom: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
