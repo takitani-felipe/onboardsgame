@@ -50,7 +50,7 @@ def filter_games():
                 (df['ComMaxPlaytime'] <= maxplaytime)
             ]
             .sort_values(by='Rank:boardgame', ascending=True)
-            .head(5)[['Name', 'GameWeight', 'MinPlayers', 'MaxPlayers','ComMaxPlaytime', 'Rank:boardgame', 'ImagePath']]
+            .head(10)[['Name', 'GameWeight', 'MinPlayers', 'MaxPlayers','ComMaxPlaytime', 'Rank:boardgame', 'ImagePath','ShopLink']]
         )
 
         # Start building the table HTML with inline CSS styles
@@ -85,6 +85,7 @@ def filter_games():
             <th>Max Players</th>
             <th>Play Time (minutes)</th>
             <th>Rank</th>
+            <th>Shop</th>
             <th>Image</th>
         </tr>
         """
@@ -99,6 +100,8 @@ def filter_games():
                 <td>{row['MaxPlayers']}</td>
                 <td>{row['ComMaxPlaytime']}</td>            
                 <td>{int(row['Rank:boardgame'])}</td>
+                <td>
+                <a href="{row['ShopLink']}" target="_blank">Shop Amazon</a></td>
                 <td><img src='{row['ImagePath']}' alt='Game Image'></td>
             </tr>
             """
