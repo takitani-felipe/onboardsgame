@@ -1,10 +1,11 @@
+# Flask application and other imports
 from flask import Flask, request, render_template
 import pandas as pd
 
 app = Flask(__name__)
 
 # Path to the Excel file
-file_path = 'C:/Users/felip/OneDrive/Área de Trabalho/Project/DB_boardgames.xlsx'
+file_path = './data/DB_boardgames.xlsx'
 df = pd.read_excel(file_path)
 
 # Mappings for game weight and categories
@@ -21,7 +22,6 @@ category_map = {
     'family': 'Cat:Family',
     'abstract': 'Cat:Abstract'
 }
-
 
 @app.route('/')
 def index():
@@ -53,60 +53,37 @@ def filter_games():
             .head(10)[['Name', 'GameWeight', 'MinPlayers', 'MaxPlayers','ComMaxPlaytime', 'Rank:boardgame', 'ImagePath','ShopLink']]
         )
 
+        num_results = len(filtered_games)
+        print(num_results)
+
         # Start building the table HTML with inline CSS styles
-        table_html = """
-        <style>
-            table {
-                width: 80%;
-                margin: 20px auto;
-                border-collapse: collapse;
-                font-family: Helvetica , sans-serif;
-                text-align: center;
-            }
-            th, td {
-                padding: 12px;
-                border: 1px solid #ddd;
-            }
-            th {
-                background-color: #f2f2f2;
-            }
-            tr:nth-child(even) {
-                background-color: #f9f9f9;
-            }
-            img {
-                width: 100px;
-            }
-        </style>
-        <table>
-        <tr>
-            <th>Name</th>
-            <th>Game Weight (0-5)</th>
-            <th>Min Players</th>
-            <th>Max Players</th>
-            <th>Play Time (minutes)</th>
-            <th>Rank</th>
-            <th>Shop</th>
-            <th>Image</th>
-        </tr>
+        table_html = f"""
+        <link rel="stylesheet" href="./static/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <div class="results-container">
+        <h2 class="results-heading">Results: {num_results} game(s) found</h2>
         """
 
         # Add rows to the table
         for index, row in filtered_games.iterrows():
             table_html += f"""
-            <tr>
-                <td>{row['Name']}</td>
-                <td>{row['GameWeight']:.1f}</td>
-                <td>{row['MinPlayers']}</td>
-                <td>{row['MaxPlayers']}</td>
-                <td>{row['ComMaxPlaytime']}</td>            
-                <td>{int(row['Rank:boardgame'])}</td>
-                <td>
-                <a href="{row['ShopLink']}" target="_blank">Shop Amazon</a></td>
-                <td><img src='{row['ImagePath']}' alt='Game Image'></td>
-            </tr>
+                <div class="game-container">
+                    <div class="image-name">
+                        <img class="game-image" src='{row['ImagePath']}' width="200" alt='Game Image'>
+                    </div>
+                    <div class="game-details">
+                        <h1>{row['Name']}</h1>
+                        <p><i class="fa-solid fa-weight-scale"></i> Weight: {row['GameWeight']:.1f}</p>
+                        <p><i class="fa-solid fa-user"></i> Players: {row.MinPlayers} - {row.MaxPlayers}</p>
+                        <p><i class="fa-solid fa-clock"></i> Playtime: {row['ComMaxPlaytime']}</p>            
+                        <p><i class="fa-solid fa-ranking-star"></i> Rank: {int(row['Rank:boardgame'])}</p>
+                        <p><i class="fa-solid fa-shop"></i> <a href="{row['ShopLink']}" target="_blank">Shop: {row['Name']}</a></p>
+                    </div>
+                </div>
+                <p class="divider"></p>
             """
 
-        table_html += "</table>"
+        table_html += "<a href='/' class='back'><i class='fa-solid fa-backward-step'></i> Search for another game</a></div>"
 
         return table_html
 
@@ -115,3 +92,4 @@ def filter_games():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
