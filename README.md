@@ -2,8 +2,8 @@
 
 # Board Games Finder!
 Find your perfect board game 🚀
+![onboardgames-logo-150](https://github.com/user-attachments/assets/c9a24ce1-3024-4630-969e-091b657c71bd)
 
-![onboardgames-logo](https://github.com/user-attachments/assets/5e9cff3b-7eb4-4440-a9da-547f18d3533c)
 </div>
 
 This project was made to find your perfect board game
