@@ -1,7 +1,9 @@
 <div align="center">
 
 # Board Games Finder!
+
 Find your perfect board game 🚀
+
 ![onboardgames-logo-150](https://github.com/user-attachments/assets/c9a24ce1-3024-4630-969e-091b657c71bd)
 
 </div>
