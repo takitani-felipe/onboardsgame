@@ -8,8 +8,6 @@ Find your perfect board game 🚀
 
 </div>
 
-This project was made to find your perfect board game
-
 ## Install dependecies
 
 ```
