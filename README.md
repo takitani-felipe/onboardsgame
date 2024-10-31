@@ -24,4 +24,4 @@ python app.py
 
 [Live Demo](https://onboard-railway-production.up.railway.app/)
 
-![ezgif-boarddemo](https://github.com/user-attachments/assets/379d122b-1d29-4568-ae78-189c0a88b164)
+![ezgif-1-988d99183d](https://github.com/user-attachments/assets/c57da603-2db6-40ab-9bf1-8e70ed97810c)
