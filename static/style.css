@@ -2,29 +2,39 @@
 
 * {
     margin: 0;
-    font-family: "Arima", system-ui;
+    font-family: "Roboto", system-ui;
+}
+
+:root {
+    background-color: #000e18;
 }
 
 body {
-    font-weight: 700;
+    font-weight: 600;
     font-size: small;
     font-style: normal;
     background-color: #020b13;
     color: #ffffff;
     display: flex;
     justify-content: center;
+    background: linear-gradient(270deg, #020b13, #00101b, #000e18, #001727);
+    background-size: 200% 200%;
+    animation: gradientAnimation 120s ease infinite;
     align-items: center;
 }
 
+
+
 .container {
-  display: flex;
-  flex-direction: column;
-  padding-left: 2px;
-  margin-top: 8px;
-  padding-right: 2px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2px;
+    margin-top: 8px;
+    padding-right: 2px;
     width: 720px;
     max-width: 1280px;
-
     text-align: center;
 }
 
@@ -38,11 +48,23 @@ form {
     flex-direction: column;
 }
 
+.description {
+    padding-top: 2rem;
+    text-align: justify;
+    font-weight: normal;
+}
+
 label {
     margin-bottom: 2px;
     font-size: 1rem;
     text-align: left;
     color: #ffffff;
+}
+
+.shoplink {
+    color: white;
+    text-decoration: underline;
+    transition: all 100ms;
 }
 
 input {
@@ -56,14 +78,14 @@ input {
 }
 
 input[type="number"],
-select{
-    padding: 0.5rem;
+select {
+    padding: 0.7rem;
     border: none;
     background-color: transparent;
     outline: none;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: rgb(255, 247, 231);
     appearance: none;
@@ -75,29 +97,19 @@ select{
 }
 
 option {
+    padding: 0.5rem;
     background: #003052;
-    transition: all 1000ms;
-    transition: background-color 300ms ease, color 300ms ease;
-
-    &::content {
-        background-color: #003052;
-    }
-
-    &::placeholder {
-        background-color: #003052;
-    }
-
 }
 
-option:not(:checked) {
+.options:hover {
     background-color: #003052;
-  }
+}
 
 input[type="submit"] {
   background-color: #007acc;
   color: white;
   border: none;
-  padding: 10px;
+  padding: 0.7rem;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
@@ -144,6 +156,10 @@ img {
     flex-direction: column;
 }
 
+.results-heading {
+    margin-bottom: 1rem;
+}
+
 .game-details {
     padding-left: 2rem;
     display: flex;
@@ -161,7 +177,7 @@ img {
 
 .divider {
     width: 100%;
-    border: 0.5px solid rgba(255, 255, 255, 0.466);
+    border: 0.2px solid rgba(255, 255, 255, 0.466);
 }
 
 i {
@@ -174,7 +190,7 @@ i {
     font-size: large;
     width: 300px;
     text-decoration: none;
-    margin-top: 8px;
+    margin-top: 2rem;
     margin-bottom: 8px;
     padding: 8px;
     background-color: #007acc;
@@ -186,5 +202,92 @@ i {
     &:hover {
         scale: 102%;
         background-color: #003052;
+        cursor: pointer;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-top: 0;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+        padding-bottom: 1rem;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    input, select {
+        font-size: 14px;
+        padding: 0.7rem;
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+        padding: 0.7rem;
+    }
+
+    .results-container {
+        margin: 16px;
+    }
+
+    h2 {
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+
+    .game-container {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .game-details {
+        padding-left: 0;
+        gap: 0.5rem;
+        margin: 12px;
+    }
+
+    .back {
+        width: 100%;
+        font-size: medium;
+        padding: 8px;
+    }
+
+    img {
+        justify-content: center;
+        height: 350px;
+        width: max-content;
+        max-width: 100%;
+    }
+
+    .image-name {
+        justify-content: center;
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
